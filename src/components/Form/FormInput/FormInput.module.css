@@ -1,0 +1,20 @@
+.FormInput {
+    display: grid;
+    grid-template-columns: minmax(3.5rem, 1fr) 5fr;
+    margin: 1rem;
+    white-space: nowrap;
+}
+.FormInput input {
+    margin: 0 1rem;
+}
+/*660px*/
+@media only screen and (max-width: 41.25em) {
+    .FormInput {
+        display: flex;
+        flex-direction: column;
+        text-align: left;
+    }
+    .FormInput input {
+        margin: 1rem 0;
+    }
+}
