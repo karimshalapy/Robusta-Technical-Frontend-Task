@@ -4,8 +4,27 @@
     margin: 1rem;
     white-space: nowrap;
 }
-.FormInput input {
+.InputContainer {
     margin: 0 1rem;
+    position: relative;
+    padding-bottom: 2rem;
+}
+.FormInput input {
+    display: block;
+    width: 100%;
+    border-radius: 0.4rem;
+}
+.FormInput input[aria-invalid="true"] {
+    border-color: crimson;
+}
+
+.Error {
+    color: crimson;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    font-size: 1.2rem;
+    font-weight: 700;
 }
 /*660px*/
 @media only screen and (max-width: 41.25em) {
@@ -14,7 +33,8 @@
         flex-direction: column;
         text-align: left;
     }
-    .FormInput input {
-        margin: 1rem 0;
+    .InputContainer {
+        margin: 0;
+        margin-top: 1rem;
     }
 }
