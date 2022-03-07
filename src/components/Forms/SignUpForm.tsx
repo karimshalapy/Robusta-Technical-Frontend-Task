@@ -3,6 +3,7 @@ import { FormProvider, SubmitHandler, useForm } from "react-hook-form"
 import Button from "../Button/Button"
 import Form from "../Form/Form"
 import FormInput from "../FormInput/FormInput"
+import Slate from "../Slate/Slate"
 
 interface Props {
   toggle: () => void
@@ -19,7 +20,7 @@ type Inputs = {
   rePassword: string
 }
 
-export const SignUpForm: FC<Props> = ({ toggle, isLoading, onSubmit }) => {
+export const SignUpForm: FC<Props> = ({ toggle, isLoading, result, onSubmit }) => {
   const methods = useForm<Inputs>({ mode: "onChange" })
   const {
     handleSubmit,
@@ -29,7 +30,7 @@ export const SignUpForm: FC<Props> = ({ toggle, isLoading, onSubmit }) => {
   const password = useRef({})
   password.current = watch("password", "")
 
-  return (
+  return result == null ? (
     <FormProvider {...methods}>
       <Form aria-labelledby="sign-up" onSubmit={handleSubmit(onSubmit)}>
         <fieldset>
@@ -172,6 +173,10 @@ export const SignUpForm: FC<Props> = ({ toggle, isLoading, onSubmit }) => {
         </Button>
       </Form>
     </FormProvider>
+  ) : (
+    <Slate>
+      <p>{result === "success" ? "Account created successfully! 🎉 🎊" : "Something went wrong! 💔"}</p>
+    </Slate>
   )
 }
 

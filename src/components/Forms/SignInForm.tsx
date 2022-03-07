@@ -3,6 +3,7 @@ import { FormProvider, SubmitHandler, useForm } from "react-hook-form"
 import Button from "../Button/Button"
 import Form from "../Form/Form"
 import FormInput from "../FormInput/FormInput"
+import Slate from "../Slate/Slate"
 
 interface Props {
   toggle: () => void
@@ -16,14 +17,14 @@ type Inputs = {
   password: string
 }
 
-export const SignInForm: FC<Props> = ({ toggle, isLoading, onSubmit }) => {
+export const SignInForm: FC<Props> = ({ toggle, isLoading, result, onSubmit }) => {
   const methods = useForm<Inputs>({ mode: "onChange" })
   const {
     handleSubmit,
     formState: { isValid },
   } = methods
 
-  return (
+  return result == null ? (
     <FormProvider {...methods}>
       <Form aria-labelledby="sing-in" onSubmit={handleSubmit(onSubmit)}>
         <fieldset>
@@ -78,6 +79,10 @@ export const SignInForm: FC<Props> = ({ toggle, isLoading, onSubmit }) => {
         </Button>
       </Form>
     </FormProvider>
+  ) : (
+    <Slate>
+      <p>{result === "success" ? "Logged in successfully! 🎉 🎊" : "Something went wrong! 💔"}</p>
+    </Slate>
   )
 }
 
