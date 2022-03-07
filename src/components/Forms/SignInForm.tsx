@@ -74,7 +74,13 @@ export const SignInForm: FC<Props> = ({ toggle, isLoading, result, onSubmit }) =
             Password
           </FormInput>
         </fieldset>
-        <Button id="submit" type="submit" aria-disabled={!isValid || isLoading} disabled={!isValid || isLoading}>
+        <Button
+          id="submit"
+          type="submit"
+          aria-disabled={!isValid || isLoading}
+          disabled={!isValid || isLoading}
+          isLoading={isLoading}
+        >
           Submit
         </Button>
       </Form>

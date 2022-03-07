@@ -168,7 +168,13 @@ export const SignUpForm: FC<Props> = ({ toggle, isLoading, result, onSubmit }) =
             Re-enter Password
           </FormInput>
         </fieldset>
-        <Button id="submit" type="submit" aria-disabled={!isValid || isLoading} disabled={!isValid || isLoading}>
+        <Button
+          id="submit"
+          type="submit"
+          aria-disabled={!isValid || isLoading}
+          disabled={!isValid || isLoading}
+          isLoading={isLoading}
+        >
           Submit
         </Button>
       </Form>
