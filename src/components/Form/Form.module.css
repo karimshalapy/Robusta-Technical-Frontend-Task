@@ -1,10 +1,20 @@
 .Form {
   text-align: center;
+  width: 100%;
+  max-width: 75rem;
+  border: 0.1rem solid #adadad;
+  padding: 2rem;
+  border-radius: 0.4rem;
 }
 
-/*660px*/
-@media only screen and (max-width: 41.25em) {
-  .Form {
-    width: 100%;
-  }
+.Form fieldset {
+  border: none;
+}
+
+.Form legend {
+  font-size: 2.5rem;
+}
+
+.Switch {
+  font-size: 1.2rem;
 }

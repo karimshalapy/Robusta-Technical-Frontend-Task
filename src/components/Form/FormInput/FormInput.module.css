@@ -1,40 +1,41 @@
 .FormInput {
-    display: grid;
-    grid-template-columns: minmax(3.5rem, 1fr) 5fr;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
     margin: 1rem;
-    white-space: nowrap;
 }
+
 .InputContainer {
-    margin: 0 1rem;
     position: relative;
-    padding-bottom: 2rem;
+    text-align: left;
+    margin: 0;
+    margin-bottom: 0.5rem;
 }
+
 .FormInput input {
     display: block;
     width: 100%;
     border-radius: 0.4rem;
+    border: 0.1rem solid #adadad;
+    padding: 0.5rem 1rem;
+    outline: none;
+    transition: border-color 0.3s ease-in-out;
 }
+
 .FormInput input[aria-invalid="true"] {
     border-color: crimson;
 }
 
+.FormInput input:focus,
+.FormInput input:hover,
+.FormInput input:active {
+    border-color: #3c77c5;
+}
+
 .Error {
     color: crimson;
-    position: absolute;
-    bottom: 0;
-    left: 0;
     font-size: 1.2rem;
     font-weight: 700;
-}
-/*660px*/
-@media only screen and (max-width: 41.25em) {
-    .FormInput {
-        display: flex;
-        flex-direction: column;
-        text-align: left;
-    }
-    .InputContainer {
-        margin: 0;
-        margin-top: 1rem;
-    }
+    margin-top: 0.5rem;
+    line-height: 1.3;
 }

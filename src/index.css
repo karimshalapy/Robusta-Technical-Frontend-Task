@@ -49,11 +49,16 @@ html:focus-within {
 body {
   box-sizing: border-box;
   min-height: 100vh;
-  margin: 0;
   font: 400 1.6rem/1.7 "Lato", Verdana, Geneva, Tahoma, sans-serif;
   color: #333;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+body,
+p,
+fieldset {
+  margin: 0;
+  padding: 0;
 }
 
 #root {
