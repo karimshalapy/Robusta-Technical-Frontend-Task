@@ -1,16 +1,15 @@
-import { FC, FormHTMLAttributes } from 'react'
-import classes from './Form.module.css'
-
+import { FC, FormHTMLAttributes } from "react"
+import Slate from "../Slate/Slate"
+import classes from "./Form.module.css"
 
 export const Form: FC<FormHTMLAttributes<HTMLFormElement>> = ({ children, ...props }) => {
-    return (
-        <form
-            className={classes.Form}
-            {...props}
-        >
-            {children}
-        </form>
-    )
+  return (
+    <Slate>
+      <form className={classes.Form} {...props}>
+        {children}
+      </form>
+    </Slate>
+  )
 }
 
 export default Form
