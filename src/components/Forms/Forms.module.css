@@ -1,0 +1,4 @@
+.Main {
+  width: clamp(5rem, 100%, 75rem);
+  max-width: 75rem;
+}

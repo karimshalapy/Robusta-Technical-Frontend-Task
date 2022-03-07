@@ -95,8 +95,3 @@ textarea,
 select {
   font: inherit;
 }
-
-main {
-  width: clamp(5rem, 100%, 75rem);
-  max-width: 75rem;
-}

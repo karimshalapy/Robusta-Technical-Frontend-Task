@@ -12,10 +12,10 @@
   border: none;
 }
 
-.Form legend {
+.Form fieldset > legend {
   font-size: 2.5rem;
 }
 
-.Switch {
+.Form fieldset > p {
   font-size: 1.2rem;
 }
