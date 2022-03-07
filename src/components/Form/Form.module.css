@@ -7,9 +7,10 @@
 }
 
 .Form fieldset > legend {
-  font-size: 2.5rem;
+  font-size: 3.5rem;
 }
 
 .Form fieldset > p {
-  font-size: 1.2rem;
+  font-size: 1.6rem;
+  line-height: 1;
 }
