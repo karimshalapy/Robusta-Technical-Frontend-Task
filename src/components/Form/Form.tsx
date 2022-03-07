@@ -1,5 +1,6 @@
 import { FC, useRef } from 'react';
 import { FormProvider, SubmitHandler, useForm } from 'react-hook-form';
+import Button from '../Button/Button';
 import classes from './Form.module.css';
 import FormInput from './FormInput/FormInput';
 
@@ -25,7 +26,7 @@ export const Form: FC = () => {
       <form className={classes.Form} aria-labelledby="signup" onSubmit={handleSubmit(onSubmit)}>
         <fieldset>
           <legend id="signup">Create an Account</legend>
-          <p className={classes.Switch}>Already have an account? Log in <button>here</button></p>
+          <p className={classes.Switch}>Already have an account? Log in <Button mode="ghost">here</Button></p>
 
           <FormInput
             type="text"
@@ -141,7 +142,7 @@ export const Form: FC = () => {
             Re-enter Password
           </FormInput>
         </fieldset>
-        <button id="submit" type="submit" aria-disabled={!isValid} disabled={!isValid}>Submit</button>
+        <Button id="submit" type="submit" aria-disabled={!isValid} disabled={!isValid}>Submit</Button>
       </form>
     </FormProvider>
   );
