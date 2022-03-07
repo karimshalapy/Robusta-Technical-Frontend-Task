@@ -1,6 +1,6 @@
 import { StrictMode } from "react"
 import ReactDOM from "react-dom"
-import Forms from "./components/Forms/Forms"
+import { Forms } from "./components"
 import "./index.css"
 
 ReactDOM.render(

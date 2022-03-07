@@ -1,9 +1,9 @@
 import { FC, useCallback, useState } from "react"
-import PageTitle from "../PageTitle/PageTitle"
+import { SubmitHandler } from "react-hook-form"
+import { PageTitle } from ".."
 import SignInForm from "./SignInForm"
 import SignUpForm from "./SignUpForm"
 import classes from "./Forms.module.css"
-import { SubmitHandler } from "react-hook-form"
 
 export const Forms: FC = props => {
   const [isSignUp, setIsSignUp] = useState(true)

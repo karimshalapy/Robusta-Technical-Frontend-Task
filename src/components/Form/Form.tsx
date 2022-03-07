@@ -1,5 +1,5 @@
 import { FC, FormHTMLAttributes } from "react"
-import Slate from "../Slate/Slate"
+import { Slate } from ".."
 import classes from "./Form.module.css"
 
 export const Form: FC<FormHTMLAttributes<HTMLFormElement>> = ({ children, ...props }) => {

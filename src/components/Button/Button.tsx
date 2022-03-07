@@ -1,5 +1,5 @@
 import { ButtonHTMLAttributes, FC } from "react"
-import Spinner from "../Spinner/Spinner"
+import { Spinner } from ".."
 import classes from "./Button.module.css"
 
 type Props = ButtonHTMLAttributes<HTMLButtonElement> & {

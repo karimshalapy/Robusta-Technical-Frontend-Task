@@ -1,9 +1,6 @@
 import { FC, useRef } from "react"
 import { FormProvider, SubmitHandler, useForm } from "react-hook-form"
-import Button from "../Button/Button"
-import Form from "../Form/Form"
-import FormInput from "../FormInput/FormInput"
-import Slate from "../Slate/Slate"
+import { Button, Form, FormInput, Slate } from ".."
 
 interface Props {
   toggle: () => void
