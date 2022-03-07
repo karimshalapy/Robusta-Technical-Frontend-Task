@@ -6,6 +6,8 @@ import FormInput from "../FormInput/FormInput"
 
 interface Props {
   toggle: () => void
+  isLoading: boolean
+  setIsLoading: (isLoading: boolean) => void
 }
 
 type Inputs = {

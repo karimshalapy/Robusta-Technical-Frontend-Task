@@ -6,6 +6,7 @@ import classes from "./Forms.module.css"
 
 export const Forms: FC = props => {
   const [isSignUp, setIsSignUp] = useState(true)
+  const [isLoading, setIsLoading] = useState(false)
   const toggle = useCallback(() => {
     setIsSignUp(prev => !prev)
   }, [])
@@ -13,7 +14,13 @@ export const Forms: FC = props => {
   return (
     <main className={classes.Main}>
       <PageTitle>Hello</PageTitle>
-      <div>{isSignUp ? <SignUpForm toggle={toggle} /> : <SignInForm toggle={toggle} />}</div>
+      <div aria-live="polite" aria-busy={isLoading}>
+        {isSignUp ? (
+          <SignUpForm isLoading={isLoading} setIsLoading={setIsLoading} toggle={toggle} />
+        ) : (
+          <SignInForm isLoading={isLoading} setIsLoading={setIsLoading} toggle={toggle} />
+        )}
+      </div>
     </main>
   )
 }
