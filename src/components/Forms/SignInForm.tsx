@@ -7,7 +7,8 @@ import FormInput from "../FormInput/FormInput"
 interface Props {
   toggle: () => void
   isLoading: boolean
-  setIsLoading: (isLoading: boolean) => void
+  onSubmit: SubmitHandler<Inputs>
+  result: "success" | "failed" | null
 }
 
 type Inputs = {
@@ -15,31 +16,12 @@ type Inputs = {
   password: string
 }
 
-export const SignInForm: FC<Props> = ({ toggle, isLoading, setIsLoading }) => {
+export const SignInForm: FC<Props> = ({ toggle, isLoading, onSubmit }) => {
   const methods = useForm<Inputs>({ mode: "onChange" })
   const {
     handleSubmit,
     formState: { isValid },
   } = methods
-  const onSubmit: SubmitHandler<Inputs> = ({ email, password }) => {
-    setIsLoading(true)
-    fetch("https://private-b2e6827-robustatask.apiary-mock.com/auth/login", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ email, password }),
-    })
-      .then(res => res.json())
-      .then(data => {
-        console.log(data)
-        setIsLoading(false)
-      })
-      .catch(err => {
-        console.error(err)
-        setIsLoading(false)
-      })
-  }
 
   return (
     <FormProvider {...methods}>
