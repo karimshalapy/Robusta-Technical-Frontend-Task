@@ -14,6 +14,7 @@ type Inputs = {
   password: string
 }
 
+/** Renders the sign-in form */
 export const SignInForm: FC<Props> = ({ toggle, isLoading, result, onSubmit }) => {
   const methods = useForm<Inputs>({ mode: "onChange" })
   const {

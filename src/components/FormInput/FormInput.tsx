@@ -8,6 +8,7 @@ type Props = InputHTMLAttributes<HTMLInputElement> & {
   registerConfig: Parameters<UseFormRegister<FieldValues>>
 }
 
+/** Renders an input element with all the corresponding label and error elements */
 export const FormInput: FC<Props> = ({ children, registerConfig, ...props }) => {
   const {
     register,

@@ -17,6 +17,7 @@ type Inputs = {
   rePassword: string
 }
 
+/** Renders the sign-up form */
 export const SignUpForm: FC<Props> = ({ toggle, isLoading, result, onSubmit }) => {
   const methods = useForm<Inputs>({ mode: "onChange" })
   const {

@@ -7,6 +7,7 @@ type Props = ButtonHTMLAttributes<HTMLButtonElement> & {
   isLoading?: boolean
 }
 
+/** Renders a button depending on the inputted modes */
 export const Button: FC<Props> = ({ children, className, isLoading, mode = "primary", ...props }) => {
   const modeToClassNameMap = {
     ghost: "Ghost",

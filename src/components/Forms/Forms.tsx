@@ -5,6 +5,7 @@ import SignInForm from "./SignInForm"
 import SignUpForm from "./SignUpForm"
 import classes from "./Forms.module.css"
 
+/** Renders the available forms and keeps the state of which one is active and switches between them. This component also keeps track of the loading and result state of the nested forms */
 export const Forms: FC = props => {
   const [isSignUp, setIsSignUp] = useState(true)
   const [isLoading, setIsLoading] = useState(false)
