@@ -1,12 +1,13 @@
 import { StrictMode } from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
 import Form from './components/Form/Form';
+import PageTitle from './components/PageTitle/PageTitle';
+import './index.css';
 
 ReactDOM.render(
   <StrictMode>
     <main>
-      <h1>Robusta Technical Frontend Task</h1>
+      <PageTitle>Robusta Technical Frontend Task</PageTitle>
       <Form />
     </main>
   </StrictMode>,

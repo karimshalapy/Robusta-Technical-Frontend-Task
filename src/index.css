@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Amiri&family=Lato:wght@300;400;700&family=Roboto:wght@400;500;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Dancing+Script&family=Lato:wght@300;400;700&display=swap");
 
 /** CSS RESET INSPIRED BY https://piccalil.li/blog/a-modern-css-reset/ **/
 
@@ -98,4 +98,3 @@ main {
   width: clamp(5rem, 100%, 75rem);
   max-width: 75rem;
 }
-
