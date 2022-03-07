@@ -51,6 +51,8 @@ body {
   min-height: 100vh;
   font: 400 1.6rem/1.7 "Lato", Verdana, Geneva, Tahoma, sans-serif;
   color: #333;
+  background: rgb(48, 94, 154);
+  background: linear-gradient(90deg, rgba(48, 94, 154, 1) 0%, rgba(60, 119, 197, 1) 100%);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }

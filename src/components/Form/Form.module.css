@@ -2,8 +2,10 @@
   text-align: center;
   width: 100%;
   border: 0.1rem solid #adadad;
+  background-color: white;
   padding: 2rem;
   border-radius: 0.4rem;
+  box-shadow: 2px 2px 7px 0px hsla(214deg 52% 20%, 0.5);
 }
 
 .Form fieldset {
