@@ -5,7 +5,10 @@ import Form from './components/Form/Form';
 
 ReactDOM.render(
   <StrictMode>
-    <Form />
+    <main>
+      <h1>Robusta Technical Frontend Task</h1>
+      <Form />
+    </main>
   </StrictMode>,
   document.getElementById('root')
 );
