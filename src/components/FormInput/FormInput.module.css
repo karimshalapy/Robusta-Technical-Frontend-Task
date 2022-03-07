@@ -1,41 +1,45 @@
 .FormInput {
-    display: flex;
-    flex-direction: column;
-    text-align: left;
-    margin: 1rem;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  margin: 1rem;
 }
 
 .InputContainer {
-    position: relative;
-    text-align: left;
-    margin: 0;
-    margin-bottom: 0.5rem;
+  position: relative;
+  text-align: left;
+  margin: 0;
+  margin-bottom: 0.5rem;
 }
 
 .FormInput input {
-    display: block;
-    width: 100%;
-    border-radius: 0.4rem;
-    border: 0.1rem solid #adadad;
-    padding: 0.5rem 1rem;
-    outline: none;
-    transition: border-color 0.3s ease-in-out;
+  display: block;
+  width: 100%;
+  border-radius: 0.4rem;
+  border: 0.1rem solid #adadad;
+  padding: 0.5rem 1rem;
+  outline: none;
+  transition: border-color 0.3s ease-in-out;
 }
 
 .FormInput input[aria-invalid="true"] {
-    border-color: crimson;
+  border-color: crimson;
 }
 
-.FormInput input:focus,
-.FormInput input:hover,
-.FormInput input:active {
-    border-color: #3c77c5;
+.FormInput input:not(:disabled):focus,
+.FormInput input:not(:disabled):hover,
+.FormInput input:not(:disabled):active {
+  border-color: #3c77c5;
+}
+.FormInput input:disabled {
+  cursor: not-allowed;
+  opacity: 0.7;
 }
 
 .Error {
-    color: crimson;
-    font-size: 1.2rem;
-    font-weight: 700;
-    margin-top: 0.5rem;
-    line-height: 1.3;
+  color: crimson;
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-top: 0.5rem;
+  line-height: 1.3;
 }
