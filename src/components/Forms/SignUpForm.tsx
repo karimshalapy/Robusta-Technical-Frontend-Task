@@ -19,7 +19,7 @@ type Inputs = {
 }
 
 export const SignUpForm: FC<Props> = ({ toggle, isLoading, setIsLoading }) => {
-  const methods = useForm<Inputs>({ mode: "onTouched" })
+  const methods = useForm<Inputs>({ mode: "onChange" })
   const {
     handleSubmit,
     watch,
@@ -27,7 +27,25 @@ export const SignUpForm: FC<Props> = ({ toggle, isLoading, setIsLoading }) => {
   } = methods
   const password = useRef({})
   password.current = watch("password", "")
-  const onSubmit: SubmitHandler<Inputs> = data => console.log(data)
+  const onSubmit: SubmitHandler<Inputs> = ({ email, username, fullName: name, password }) => {
+    setIsLoading(true)
+    fetch("https://private-b2e6827-robustatask.apiary-mock.com/auth/register", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ name, email, username, password }),
+    })
+      .then(res => res.json())
+      .then(data => {
+        console.log(data)
+        setIsLoading(false)
+      })
+      .catch(err => {
+        console.error(err)
+        setIsLoading(false)
+      })
+  }
 
   return (
     <FormProvider {...methods}>

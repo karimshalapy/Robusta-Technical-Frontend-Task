@@ -11,17 +11,35 @@ interface Props {
 }
 
 type Inputs = {
-  username: string
+  email: string
   password: string
 }
 
 export const SignInForm: FC<Props> = ({ toggle, isLoading, setIsLoading }) => {
-  const methods = useForm<Inputs>({ mode: "onTouched" })
+  const methods = useForm<Inputs>({ mode: "onChange" })
   const {
     handleSubmit,
     formState: { isValid },
   } = methods
-  const onSubmit: SubmitHandler<Inputs> = data => console.log(data)
+  const onSubmit: SubmitHandler<Inputs> = ({ email, password }) => {
+    setIsLoading(true)
+    fetch("https://private-b2e6827-robustatask.apiary-mock.com/auth/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ email, password }),
+    })
+      .then(res => res.json())
+      .then(data => {
+        console.log(data)
+        setIsLoading(false)
+      })
+      .catch(err => {
+        console.error(err)
+        setIsLoading(false)
+      })
+  }
 
   return (
     <FormProvider {...methods}>
@@ -36,17 +54,27 @@ export const SignInForm: FC<Props> = ({ toggle, isLoading, setIsLoading }) => {
           </p>
 
           <FormInput
-            type="text"
-            name="username"
-            id="username"
-            placeholder="Enter Your Username"
-            registerConfig={["username", { required: "This field is required" }]}
-            autoComplete="username"
+            type="email"
+            name="email"
+            id="email"
+            placeholder="Enter Your E-mail"
+            registerConfig={[
+              "email",
+              {
+                required: "This field is required",
+                pattern: {
+                  value:
+                    /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/g,
+                  message: "Please, enter a valid email",
+                },
+              },
+            ]}
+            autoComplete="email"
             disabled={isLoading}
             aria-disabled={isLoading}
             required
           >
-            Username
+            Email
           </FormInput>
 
           <FormInput
