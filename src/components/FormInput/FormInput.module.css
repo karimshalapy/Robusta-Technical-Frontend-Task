@@ -16,7 +16,7 @@
   display: block;
   width: 100%;
   border-radius: 0.4rem;
-  border: 0.1rem solid #adadad;
+  border: 0.2rem solid #adadad;
   padding: 0.5rem 1rem;
   outline: none;
   transition: border-color 0.3s ease-in-out;
