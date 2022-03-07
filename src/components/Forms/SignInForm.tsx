@@ -15,7 +15,7 @@ type Inputs = {
   password: string
 }
 
-export const SignInForm: FC<Props> = ({ toggle }) => {
+export const SignInForm: FC<Props> = ({ toggle, isLoading, setIsLoading }) => {
   const methods = useForm<Inputs>({ mode: "onTouched" })
   const {
     handleSubmit,
@@ -30,7 +30,7 @@ export const SignInForm: FC<Props> = ({ toggle }) => {
           <legend id="sing-in">Sign in</legend>
           <p>
             Don't have an account? create a new one{" "}
-            <Button mode="ghost" type="button" onClick={toggle}>
+            <Button mode="ghost" type="button" onClick={toggle} disabled={isLoading} aria-disabled={isLoading}>
               here
             </Button>
           </p>
@@ -42,6 +42,8 @@ export const SignInForm: FC<Props> = ({ toggle }) => {
             placeholder="Enter Your Username"
             registerConfig={["username", { required: "This field is required" }]}
             autoComplete="username"
+            disabled={isLoading}
+            aria-disabled={isLoading}
             required
           >
             Username
@@ -54,12 +56,14 @@ export const SignInForm: FC<Props> = ({ toggle }) => {
             placeholder="Enter Your Password"
             registerConfig={["password", { required: "This field is required" }]}
             autoComplete="password"
+            disabled={isLoading}
+            aria-disabled={isLoading}
             required
           >
             Password
           </FormInput>
         </fieldset>
-        <Button id="submit" type="submit" aria-disabled={!isValid} disabled={!isValid}>
+        <Button id="submit" type="submit" aria-disabled={!isValid || isLoading} disabled={!isValid || isLoading}>
           Submit
         </Button>
       </Form>

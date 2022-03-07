@@ -18,7 +18,7 @@ type Inputs = {
   rePassword: string
 }
 
-export const SignUpForm: FC<Props> = ({ toggle }) => {
+export const SignUpForm: FC<Props> = ({ toggle, isLoading, setIsLoading }) => {
   const methods = useForm<Inputs>({ mode: "onTouched" })
   const {
     handleSubmit,
@@ -36,7 +36,7 @@ export const SignUpForm: FC<Props> = ({ toggle }) => {
           <legend id="sign-up">Create an Account</legend>
           <p>
             Already have an account? Log in{" "}
-            <Button mode="ghost" type="button" onClick={toggle}>
+            <Button mode="ghost" type="button" onClick={toggle} disabled={isLoading} aria-disabled={isLoading}>
               here
             </Button>
           </p>
@@ -57,6 +57,8 @@ export const SignUpForm: FC<Props> = ({ toggle }) => {
               },
             ]}
             autoComplete="name"
+            disabled={isLoading}
+            aria-disabled={isLoading}
             required
           >
             Full Name
@@ -79,6 +81,8 @@ export const SignUpForm: FC<Props> = ({ toggle }) => {
               },
             ]}
             autoComplete="email"
+            disabled={isLoading}
+            aria-disabled={isLoading}
             required
           >
             Email
@@ -104,6 +108,8 @@ export const SignUpForm: FC<Props> = ({ toggle }) => {
               },
             ]}
             autoComplete="username"
+            disabled={isLoading}
+            aria-disabled={isLoading}
             required
           >
             Username
@@ -134,6 +140,8 @@ export const SignUpForm: FC<Props> = ({ toggle }) => {
               },
             ]}
             autoComplete="password"
+            disabled={isLoading}
+            aria-disabled={isLoading}
             required
           >
             Password
@@ -152,12 +160,14 @@ export const SignUpForm: FC<Props> = ({ toggle }) => {
               },
             ]}
             autoComplete="password"
+            disabled={isLoading}
+            aria-disabled={isLoading}
             required
           >
             Re-enter Password
           </FormInput>
         </fieldset>
-        <Button id="submit" type="submit" aria-disabled={!isValid} disabled={!isValid}>
+        <Button id="submit" type="submit" aria-disabled={!isValid || isLoading} disabled={!isValid || isLoading}>
           Submit
         </Button>
       </Form>
