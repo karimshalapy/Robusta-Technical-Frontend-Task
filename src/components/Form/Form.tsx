@@ -39,10 +39,12 @@ export const Form: FC = () => {
                 }
               }
             ]}
+            autoComplete="name"
             required
           >
             Full Name
           </FormInput>
+
           <FormInput
             type="email"
             name="email"
@@ -58,10 +60,12 @@ export const Form: FC = () => {
                 }
               }
             ]}
+            autoComplete="email"
             required
           >
             Email
           </FormInput>
+
           <FormInput
             type="text"
             name="username"
@@ -81,10 +85,12 @@ export const Form: FC = () => {
                 }
               }
             ]}
+            autoComplete="username"
             required
           >
             Username
           </FormInput>
+
           <FormInput
             type="password"
             name="password"
@@ -108,10 +114,12 @@ export const Form: FC = () => {
                 }
               }
             ]}
+            autoComplete="password"
             required
           >
             Password
           </FormInput>
+
           <FormInput
             type="password"
             name="rePassword"
@@ -124,6 +132,7 @@ export const Form: FC = () => {
                 validate: value => value === password.current || "The passwords don't match"
               }
             ]}
+            autoComplete="password"
             required
           >
             Re-enter Password
