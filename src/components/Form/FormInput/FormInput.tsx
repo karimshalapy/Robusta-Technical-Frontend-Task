@@ -11,15 +11,31 @@ type Props = InputHTMLAttributes<HTMLInputElement> & {
 export const FormInput: FC<Props> = ({ children, registerConfig, ...props }) => {
     const { register, formState: { errors } } = useFormContext()
     const errorMessage = errors[props.name]?.message
+    const labelId = props.id + "-label"
+    const errorId = props.id + "-error"
 
     return (
-        <label className={classes.FormInput}>
-            {children}
+        <div className={classes.FormInput}>
+            <label id={labelId} htmlFor={props.id}>
+                {children}
+            </label>
             <div className={classes.InputContainer}>
-                <input {...props} aria-required={props.required} aria-invalid={!!errorMessage} {...register.apply(this, registerConfig)} />
-                <p className={classes.Error} role="alert">{errorMessage}</p>
+                <input
+                    {...props}
+                    aria-required={props.required}
+                    aria-invalid={!!errorMessage}
+                    aria-labelledby={`${labelId} ${errorId}`}
+                    {...register.apply(this, registerConfig)}
+                />
+                <p
+                    className={classes.Error}
+                    id={errorId}
+                    role="alert"
+                >
+                    {errorMessage}
+                </p>
             </div>
-        </label>
+        </div>
     )
 }
 
