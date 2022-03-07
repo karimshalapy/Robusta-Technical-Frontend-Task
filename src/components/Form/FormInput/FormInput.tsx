@@ -17,7 +17,7 @@ export const FormInput: FC<Props> = ({ children, registerConfig, ...props }) => 
             {children}
             <div className={classes.InputContainer}>
                 <input {...props} aria-required={props.required} aria-invalid={!!errorMessage} {...register.apply(this, registerConfig)} />
-                <span className={classes.Error} {...!!errorMessage ? { role: "alert" } : {}}>{errorMessage}</span>
+                <p className={classes.Error} role="alert">{errorMessage}</p>
             </div>
         </label>
     )
